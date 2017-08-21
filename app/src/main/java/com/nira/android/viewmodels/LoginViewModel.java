@@ -46,7 +46,7 @@ public class LoginViewModel implements ViewModel {
                 .addOnCompleteListener((Activity)context, task -> {
                     if(task.isSuccessful()) {
                         Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-                        ActivityRouter.naviagateToSelectCompany(context,email);
+                        ActivityRouter.naviagateToSelectCompany(context,email,null);
                     }else
                         Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();
 

@@ -9,6 +9,7 @@ import com.nira.android.activity.LoginWithPhoneActivity;
 import com.nira.android.activity.ProfileActivity;
 import com.nira.android.activity.SelectCompanyActivity;
 import com.nira.android.activity.UniqueCodeSignInActivity;
+import com.nira.android.activity.VerifyCodeActivity;
 
 /**
  * Created by Suvesh on 20/08/2017 AD.
@@ -30,10 +31,11 @@ public class ActivityRouter {
         context.startActivity(intent);
     }
 
-    public  static  void navigateToProfileActivity(Context context,String code,String email){
+    public  static  void navigateToProfileActivity(Context context,String code,String email,String phone){
         Intent intent = new Intent(context , ProfileActivity.class);
         intent.putExtra(ProfileActivity.CODE,code);
         intent.putExtra(ProfileActivity.EMIAL,email);
+        intent.putExtra(ProfileActivity.PHONE,phone);
         context.startActivity(intent);
     }
 
@@ -42,9 +44,15 @@ public class ActivityRouter {
         context.startActivity(intent);
     }
 
-    public  static  void naviagateToSelectCompany(Context context,String email){
+    public  static  void naviagateToSelectCompany(Context context,String email,String phone){
         Intent intent = new Intent(context , SelectCompanyActivity.class);
+        intent.putExtra(SelectCompanyActivity.PHONE,phone);
         intent.putExtra(SelectCompanyActivity.ID,email);
+        context.startActivity(intent);
+    }
+
+    public  static  void navigateToVerification(Context context){
+        Intent intent = new Intent(context , VerifyCodeActivity.class);
         context.startActivity(intent);
     }
 }

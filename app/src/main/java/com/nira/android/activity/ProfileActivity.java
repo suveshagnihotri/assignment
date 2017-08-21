@@ -14,11 +14,12 @@ import org.jetbrains.annotations.NotNull;
 public class ProfileActivity extends BaseActivity {
     public  static final String  CODE = "code";
     public  static final String  EMIAL = "email";
+    public  static final String  PHONE = "phone";
 
     @NotNull
     @Override
     protected ViewModel createViewModel() {
-        return new ProfileViewModel(ProfileActivity.this,getIntent().getStringExtra(CODE),getIntent().getStringExtra(EMIAL));
+        return new ProfileViewModel(ProfileActivity.this,getIntent().getStringExtra(CODE),getIntent().getStringExtra(EMIAL),getIntent().getStringExtra(PHONE));
     }
 
     @Override

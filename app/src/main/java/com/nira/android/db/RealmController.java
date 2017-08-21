@@ -15,13 +15,14 @@ import io.realm.RealmResults;
 
 public class RealmController {
 
-    public static void addUserInDB(String id, String name, String companyName, String score,String uniqueCode) {
+    public static void addUserInDB(String id, String name, String companyName, int score,String uniqueCode,String phone) {
         UniqueCodeUser user = new UniqueCodeUser();
         user.setId(id);
         user.setCompanyName(companyName);
         user.setName(name);
         user.setScore(score);
         user.setUniqueCode(uniqueCode);
+        user.setPhone(phone);
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(user);
@@ -48,6 +49,17 @@ public class RealmController {
     public  static UniqueCodeUser getUserbaseOnId(String uniqueCode){
         Realm realm = Realm.getDefaultInstance();
         UniqueCodeUser user = realm.where(UniqueCodeUser.class).equalTo("id" ,uniqueCode).findFirst();
+        if(user!=null){
+            return  user;
+        }else{
+            return  null;
+        }
+    }
+
+
+    public  static UniqueCodeUser getUserBaseOnPhone(String uniqueCode){
+        Realm realm = Realm.getDefaultInstance();
+        UniqueCodeUser user = realm.where(UniqueCodeUser.class).equalTo("phone" ,uniqueCode).findFirst();
         if(user!=null){
             return  user;
         }else{

@@ -36,6 +36,8 @@ import butterknife.Unbinder;
 public class SelectCompanyActivity extends AppCompatActivity {
 
     public static final String ID = "email";
+    public static final String PHONE = "phone";
+
     @BindView(R.id.tvCName)
     TextInputLayout tvCName;
     @BindView(R.id.companyName)
@@ -50,6 +52,10 @@ public class SelectCompanyActivity extends AppCompatActivity {
     EditText name;
     @BindView(R.id.btnSubmit)
     Button btnSubmit;
+    @BindView(R.id.score)
+    EditText score;
+    @BindView(R.id.tScore)
+    TextInputLayout tScore;
 
     private Unbinder unbinder;
     private BottomSheetDialog dialog;
@@ -65,8 +71,13 @@ public class SelectCompanyActivity extends AppCompatActivity {
                 setUpCompanyList();
             }
         });
-        if (getIntent().getStringExtra(ID) != null)
+        if (getIntent().getStringExtra(ID) != null) {
             email.setText(getIntent().getStringExtra(ID));
+
+        }
+        if(getIntent().getStringExtra(PHONE)!=null){
+            email.setText(getIntent().getStringExtra(PHONE));
+        }
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,16 +88,18 @@ public class SelectCompanyActivity extends AppCompatActivity {
                     Toast.makeText(SelectCompanyActivity.this, "please enter your name", Toast.LENGTH_SHORT).show();
                 else if (tvSelectedItem.getText().toString().equalsIgnoreCase("Select Company Name")) {
                     Toast.makeText(SelectCompanyActivity.this, "please select your Company", Toast.LENGTH_SHORT).show();
-                }else{
-                    if(tvCompanyName.getText().toString()!=null && tvCompanyName.getText().toString().trim().length()!=0) {
-                        RealmController.addUserInDB(email.getText().toString(), name.getText().toString(), tvCompanyName.getText().toString(), "8", "");
-                        ActivityRouter.navigateToProfileActivity(SelectCompanyActivity.this, null, email.getText().toString());
-                    }else{
-                        RealmController.addUserInDB(email.getText().toString(), name.getText().toString(), tvSelectedItem.getText().toString(), "8", "");
-                        ActivityRouter.navigateToProfileActivity(SelectCompanyActivity.this, null, email.getText().toString());
+                } else{
+                        if(tvCompanyName.getText().toString()!=null && tvCompanyName.getText().toString().trim().length()!=0) {
+                            RealmController.addUserInDB(email.getText().toString(), name.getText().toString(), tvCompanyName.getText().toString(), Integer.valueOf(score.getText().toString()), "","");
+                            ActivityRouter.navigateToProfileActivity(SelectCompanyActivity.this, null, email.getText().toString(),null);
+                        }else if(score.getText().toString()!=null && score.getText().toString().trim().length()!=0 ){
+                            RealmController.addUserInDB(email.getText().toString(), name.getText().toString(), tvSelectedItem.getText().toString(), Integer.valueOf(score.getText().toString()), "",",");
+                            ActivityRouter.navigateToProfileActivity(SelectCompanyActivity.this, null, email.getText().toString(),null);
+                        }else {
+                            RealmController.addUserInDB(email.getText().toString(), name.getText().toString(), tvSelectedItem.getText().toString(), 10, "","");
+                            ActivityRouter.navigateToProfileActivity(SelectCompanyActivity.this, null, email.getText().toString(),null);
+                        }
                     }
-                }
-
             }
         });
 
@@ -125,9 +138,11 @@ public class SelectCompanyActivity extends AppCompatActivity {
                 Log.d("Selected Company", company);
                 if (company.equalsIgnoreCase("None of the above")) {
                     tvCName.setVisibility(View.VISIBLE);
+                    tScore.setVisibility(View.VISIBLE);
                     tvSelectedItem.setText(tvCompanyName.getText().toString());
                 } else {
                     tvCName.setVisibility(View.GONE);
+                    tScore.setVisibility(View.GONE);
                     tvSelectedItem.setText(company);
                 }
                 dialog.dismiss();

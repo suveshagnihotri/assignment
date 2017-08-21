@@ -41,7 +41,7 @@ public class UniqueCodeViewModel implements ViewModel {
      UniqueCodeUser user = RealmController.getUser(code);
         if(user!=null){
             Toast.makeText(context,"Sucess",Toast.LENGTH_LONG).show();
-            ActivityRouter.navigateToProfileActivity(context,code,null);
+            ActivityRouter.navigateToProfileActivity(context,code,null,null);
         }else{
             Toast.makeText(context,"Failed",Toast.LENGTH_LONG).show();
         }
@@ -53,12 +53,14 @@ public class UniqueCodeViewModel implements ViewModel {
     }
 
     private void addAllUserWithUniqueCode(){
-        RealmController.addUserInDB("1","user1","company1","2","niraabc123");
-        RealmController.addUserInDB("2","user2","company2","4","niraabc234");
-        RealmController.addUserInDB("3","user3","company3","5","niraabc456");
-        RealmController.addUserInDB("4","user4","company4","6","niraabc789");
-        RealmController.addUserInDB("5","user5","company5","7","nira1234");
-        RealmController.addUserInDB("6","user6","company6","8","nira23456");
+        RealmController.addUserInDB("1","user1","company1",2,"niraabc123","");
+        RealmController.addUserInDB("2","user2","company2",4,"niraabc234","");
+        RealmController.addUserInDB("3","user3","company3",5,"niraabc456","");
+        RealmController.addUserInDB("4","user4","company4",6,"niraabc789","");
+        RealmController.addUserInDB("5","user5","company5",7,"nira1234","");
+        RealmController.addUserInDB("6","user6","company6",8,"nira23456","");
+        RealmController.addUserInDB("7","user7","company7",12,"nira1000","");
+
 
     }
 

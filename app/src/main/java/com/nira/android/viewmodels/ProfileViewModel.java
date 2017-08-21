@@ -18,16 +18,19 @@ public class ProfileViewModel implements ViewModel {
     public  String companyName;
     public  String status;
     private  UniqueCodeUser uniqueCodeUser;
-    public  ProfileViewModel(Context context,String code,String email){
+    public  ProfileViewModel(Context context,String code,String email,String phone){
         this.context=context;
         if(code!=null)
             uniqueCodeUser = RealmController.getUser(code);
-        else
+        else if(email !=null)
             uniqueCodeUser = RealmController.getUserbaseOnId(email);
+        else
+            uniqueCodeUser = RealmController.getUserbaseOnId(phone);
+
         name=uniqueCodeUser.getName();
         companyName= uniqueCodeUser.getCompanyName();
         score= "Score :"+uniqueCodeUser.getScore()+"%";
-        if(Integer.valueOf(uniqueCodeUser.getScore())< 10){
+        if(uniqueCodeUser.getScore()< 10){
             status= "You are blocked because your score is below 10";
         }else{
             status= "You are allowed because your score is above 10";

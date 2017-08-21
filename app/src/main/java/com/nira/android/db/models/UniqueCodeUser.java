@@ -13,6 +13,16 @@ public class UniqueCodeUser extends RealmObject {
     @PrimaryKey
     private String id;
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    private  String phone;
+
     public String getId() {
         return id;
     }
@@ -42,16 +52,15 @@ public class UniqueCodeUser extends RealmObject {
 
     private String companyName;
 
-    public String getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
-    @Required
-    private  String score;
+    private  int score;
 
     public String getUniqueCode() {
         return uniqueCode;
