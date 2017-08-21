@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "327966605955",
+    "firebase_url": "https://niraassignment.firebaseio.com",
+    "project_id": "niraassignment",
+    "storage_bucket": "niraassignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327966605955:android:8a32136abb278e90",
+        "android_client_info": {
+          "package_name": "com.nira.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327966605955-c5v9g1mup0gum3tpgnbl7cgpcj91ss6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvtmzwXQ9d7xhZZQjdqueQ6RoamrPZThE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

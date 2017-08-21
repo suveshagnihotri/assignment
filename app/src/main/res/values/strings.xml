@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Nira</string>
+    <string name="hint_phone">Email</string>
+    <string name="hint_code">UniqueCode</string>
+    <string name="hint_passward">Passward</string>
+    <string name="log_in">Log in</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="login_phone">Login with phone</string>
+
+    <!--SignUpActivity-->
+    <string name="register">continue</string>
+    <string name="please_register">Please Enter your phone number</string>
+    <string name="hint_email">Your email Id</string>
+    <string name="hint_name">Your name</string>
+
+    <!--ProfileActivity-->
+    <string name="update">Update</string>
+
+
+    <!-- ForgetPassward-->
+    <string name="forgot">Forgot</string>
+    <string name="passward"> Passward? </string>
+    <string name="reset_pass">Reset Password</string>
+
+    <string name="auth_failed">Authentication failed</string>
+    <string name="start_phone_auth">Start</string>
+    <string name="verify_phone_auth">Verify</string>
+    <string name="resend_phone_auth">Resend</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_verification_code">Verification Code</string>
+    <string name="status_code_sent">Code Sent</string>
+    <string name="status_verification_failed">Verification failed</string>
+    <string name="status_verification_succeeded">Verification succeeded</string>
+    <string name="status_sign_in_failed">Sign-in failed</string>
+    <string name="instant_validation">(instant validation)</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+    <string name="about_us">A string resource provides text strings for your application with optional text styling and formatting. There are three types of resources that can provide your application with strings:</string>
+
+</resources>
